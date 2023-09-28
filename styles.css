@@ -1044,12 +1044,17 @@ body.dark-theme {
         width: 180px;
     }
 
-    .home__social,
-    .home__social-link {
-        top: 35%;
-        margin-bottom: 20px;
-        position: absolute;
-        margin: 0%;
+    @media only screen and (max-width: 340px) {
+        .home__social {
+            position: static;
+            margin: 1rem 0; 
+            display: flex;
+            justify-content: center;
+        }
+    
+        .home__social-link {
+            margin: 0 0.5rem; 
+        }
     }
     
     .about__image {

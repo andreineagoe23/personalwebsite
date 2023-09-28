@@ -388,14 +388,14 @@ body.dark-theme {
 }
 
 .home__social {
-    height: max-content;
     position: absolute;
     left: -3rem;
     top: 0;
     bottom: 0;
     margin: auto 0;
-    display: grid;
-    row-gap: 1rem;
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
 }
 
 .home__social-link {
@@ -403,8 +403,8 @@ body.dark-theme {
     color: var(--white-color);
     font-size: 1.25rem;
     padding: 6px;
-    display: grid;
-    place-items: center;
+    margin: 0.5rem 0; 
+    text-align: center; 
     transition: background-color 0.3s;
 }
 
@@ -1043,20 +1043,7 @@ body.dark-theme {
     .home__image {
         width: 180px;
     }
-    .home__social {
-        position: static;
-        margin: 1rem auto; 
-        display: flex;
-        flex-wrap: wrap; 
-        justify-content: center;
-        align-items: center;
-        row-gap: 0.5rem; 
-        height: auto; 
-    }
-
-    .home__social-link {
-        margin: 0.5rem; 
-    }
+    
     .about__image {
         width: 180px;
     }

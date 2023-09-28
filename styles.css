@@ -1043,6 +1043,12 @@ body.dark-theme {
     .home__image {
         width: 180px;
     }
+
+    .home__social,
+    .home__social-link {
+        margin: auto;
+        position: fixed;
+    }
     
     .about__image {
         width: 180px;

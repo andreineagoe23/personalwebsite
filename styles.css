@@ -1034,7 +1034,7 @@ body.dark-theme {
 
 /* Small Devices */
 
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 340px) {
     .container {
         margin-inline: 1rem;
     }

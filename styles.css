@@ -763,13 +763,13 @@ body.dark-theme {
 }
 
 .contact__data {
-    justify-content: center;
     position: relative;
     width: 300px;
     height: 300px;
     background-color: var(--container-color);
     padding: 3rem 1.5rem 3.5rem;
     border-bottom: 4px solid var(--first-color);
+    margin-left: auto;
     z-index: 5;
     transition: background-color 0.4s;
 }
@@ -1059,7 +1059,7 @@ body.dark-theme {
 
     .contact__data,
     .section__title-2 {
-        transform: translateX(-2.5rem);
+        transform: translateX(0 rem);
     }
 }
 

@@ -388,14 +388,14 @@ body.dark-theme {
 }
 
 .home__social {
+    height: max-content;
     position: absolute;
     left: -3rem;
     top: 0;
     bottom: 0;
     margin: auto 0;
-    display: flex;
-    flex-direction: column; 
-    align-items: center; 
+    display: grid;
+    row-gap: 1rem;
 }
 
 .home__social-link {
@@ -403,8 +403,8 @@ body.dark-theme {
     color: var(--white-color);
     font-size: 1.25rem;
     padding: 6px;
-    margin: 0.5rem 0; 
-    text-align: center; 
+    display: grid;
+    place-items: center;
     transition: background-color 0.3s;
 }
 

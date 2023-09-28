@@ -388,15 +388,14 @@ body.dark-theme {
 }
 
 .home__social {
-    height: max-content;
     position: absolute;
     left: -3rem;
     top: 0;
     bottom: 0;
-    margin: auto 0;
     display: grid;
+    align-content: center;
     row-gap: 1rem;
-}
+ }
 
 .home__social-link {
     background-color: var(--black-color-light);
@@ -1034,7 +1033,7 @@ body.dark-theme {
 
 /* Small Devices */
 
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 340px) {
     .container {
         margin-inline: 1rem;
     }

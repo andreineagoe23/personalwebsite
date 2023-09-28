@@ -1044,6 +1044,24 @@ body.dark-theme {
         width: 180px;
     }
     
+    .home__profile {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .home__social {
+        position: static;
+        display: flex;
+        justify-content: space-around;
+        width: 100%;
+        margin-top: 1rem; /* Adjust as needed */
+    }
+
+    .home__social-link {
+        padding: 8px; /* Adjust as needed */
+    }
+    
     .about__image {
         width: 180px;
     }

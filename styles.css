@@ -1046,8 +1046,8 @@ body.dark-theme {
 
     .home__social,
     .home__social-link {
-        margin: auto;
-        position: fixed;
+        top: 35%;
+        position: absolute;
     }
     
     .about__image {

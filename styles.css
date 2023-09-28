@@ -1043,24 +1043,6 @@ body.dark-theme {
     .home__image {
         width: 180px;
     }
-
-    .home__profile {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .home__social {
-        position: static;
-        display: flex;
-        justify-content: space-around;
-        width: 100%;
-        margin-top: 1rem; 
-    }
-
-    .home__social-link {
-        padding: 4px;
-    }
     
     .about__image {
         width: 180px;

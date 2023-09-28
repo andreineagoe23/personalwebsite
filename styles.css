@@ -1057,7 +1057,8 @@ body.dark-theme {
         width: 100%;
     }
 
-    .contact__data .section__title-2 {
+    .contact__data,
+    .section__title-2 {
         transform: translateX(0);
     }
 }

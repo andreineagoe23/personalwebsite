@@ -1042,31 +1042,6 @@ body.dark-theme {
     .home__image {
         width: 180px;
     }
-
-    .home__social {
-        height: max-content;
-        position: absolute;
-        left: -3rem;
-        top: 0;
-        bottom: 0;
-        margin: auto 0;
-        display: grid;
-        row-gap: 1rem;
-    }
-    
-    .home__social-link {
-        background-color: var(--black-color-light);
-        color: var(--white-color);
-        font-size: 1.25rem;
-        padding: 6px;
-        display: grid;
-        place-items: center;
-        transition: background-color 0.3s;
-    }
-    
-    .home__social-link:hover {
-        background-color: var(--black-color);
-    }
     
     .about__image {
         width: 180px;

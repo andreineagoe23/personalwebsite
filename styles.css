@@ -1059,10 +1059,7 @@ body.dark-theme {
 
     .contact__data,
     .section__title-2 {
-        align-items: center;
-        justify-content: center;
-        right: 300px;
-        transform: translateX(0);
+        transform: translateX(-2.5rem);
     }
 }
 

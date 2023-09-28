@@ -1042,6 +1042,18 @@ body.dark-theme {
     .home__image {
         width: 180px;
     }
+
+    .home__social {
+        position: static;
+        display: flex;
+        justify-content: space-around;
+        width: 100%;
+        margin-top: 1rem; 
+    }
+
+    .home__social-link {
+        padding: 8px;
+    }
     
     .about__image {
         width: 180px;

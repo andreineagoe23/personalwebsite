@@ -1061,7 +1061,7 @@ body.dark-theme {
     .section__title-2 {
         align-items: center;
         justify-content: center;
-        right: 100px;
+        right: 300px;
         transform: translateX(0);
     }
 }

@@ -1059,6 +1059,8 @@ body.dark-theme {
 
     .contact__data,
     .section__title-2 {
+        align-items: center;
+        justify-content: center;
         transform: translateX(0);
     }
 }

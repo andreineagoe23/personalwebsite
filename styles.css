@@ -1047,6 +1047,7 @@ body.dark-theme {
     .home__social,
     .home__social-link {
         top: 35%;
+        margin-bottom: 20px;
         position: absolute;
     }
     

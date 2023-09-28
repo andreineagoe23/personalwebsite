@@ -1049,6 +1049,7 @@ body.dark-theme {
         top: 35%;
         margin-bottom: 20px;
         position: absolute;
+        margin: 0%;
     }
     
     .about__image {

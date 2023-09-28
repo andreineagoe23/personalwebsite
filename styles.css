@@ -1043,18 +1043,20 @@ body.dark-theme {
     .home__image {
         width: 180px;
     }
+    .home__social {
+        position: static;
+        margin: 1rem auto; 
+        display: flex;
+        flex-wrap: wrap; 
+        justify-content: center;
+        align-items: center;
+        row-gap: 0.5rem; 
+        height: auto; 
+    }
 
-     .home__social {
-            position: static;
-            margin: 1rem 0; 
-            display: flex;
-            justify-content: center;
-        }
-    
-        .home__social-link {
-            margin: 0 0.5rem; 
-        }
-    
+    .home__social-link {
+        margin: 0.5rem; 
+    }
     .about__image {
         width: 180px;
     }

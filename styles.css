@@ -1044,8 +1044,7 @@ body.dark-theme {
         width: 180px;
     }
 
-    @media only screen and (max-width: 340px) {
-        .home__social {
+     .home__social {
             position: static;
             margin: 1rem 0; 
             display: flex;
@@ -1055,7 +1054,6 @@ body.dark-theme {
         .home__social-link {
             margin: 0 0.5rem; 
         }
-    }
     
     .about__image {
         width: 180px;

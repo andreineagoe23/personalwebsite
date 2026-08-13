@@ -17,9 +17,13 @@ export function toAppPath(pathname) {
   return normalised === "" ? "/" : normalised;
 }
 
+/**
+ * Trailing slash on nested paths so internal links match the canonical URL and
+ * skip the host's directory redirect.
+ */
 export function toHref(appPath) {
   if (appPath === "/") return `${BASE}/`;
-  return `${BASE}${appPath}`;
+  return `${BASE}${appPath}/`;
 }
 
 export function RouterProvider({ children }) {

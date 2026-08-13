@@ -5,7 +5,7 @@
  *
  * Plain data only — scripts/prerender-routes.mjs imports this in Node.
  */
-export const SITE_URL = "https://andreineagoe23.github.io/personalwebsite";
+export const SITE_URL = "https://neagoeandrei.com";
 
 export const routes = [
   {

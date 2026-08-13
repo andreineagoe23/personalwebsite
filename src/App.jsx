@@ -29,7 +29,8 @@ function useDocumentMeta(route, path) {
     setMeta('meta[name="twitter:title"]', route.title);
     setMeta('meta[name="twitter:description"]', route.description);
 
-    const url = `${SITE_URL}${path === "/" ? "/" : path}`;
+    // Trailing slash to match the prerendered canonical for the same route.
+    const url = `${SITE_URL}${path === "/" ? "/" : `${path}/`}`;
     setMeta('meta[property="og:url"]', url);
     const canonical = document.head.querySelector('link[rel="canonical"]');
     if (canonical) canonical.setAttribute("href", url);

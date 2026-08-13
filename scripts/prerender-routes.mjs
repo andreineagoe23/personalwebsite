@@ -52,10 +52,17 @@ function render(route, url, { noindex = false } = {}) {
   return html;
 }
 
+/**
+ * Static hosts serve /work/garzoni/index.html and 301 the slashless form to it,
+ * so the canonical, og:url and sitemap all use the trailing slash — otherwise
+ * every canonical points at a URL that redirects.
+ */
+const canonicalUrl = (path) => `${SITE_URL}${path === "/" ? "/" : `${path}/`}`;
+
 const written = [];
 
 for (const route of routes) {
-  const url = `${SITE_URL}${route.path === "/" ? "/" : route.path}`;
+  const url = canonicalUrl(route.path);
   const outDir = route.path === "/" ? dist : resolve(dist, route.path.replace(/^\//, ""));
   mkdirSync(outDir, { recursive: true });
   const outFile = resolve(outDir, "index.html");
@@ -73,7 +80,7 @@ written.push("404.html");
 const urls = routes
   .map(
     (r) => `  <url>
-    <loc>${SITE_URL}${r.path === "/" ? "/" : r.path}</loc>
+    <loc>${canonicalUrl(r.path)}</loc>
     <changefreq>monthly</changefreq>
     <priority>${r.path === "/" ? "1.0" : "0.8"}</priority>
   </url>`,

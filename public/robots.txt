@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://andreineagoe23.github.io/personalwebsite/sitemap.xml
+Sitemap: https://neagoeandrei.com/sitemap.xml

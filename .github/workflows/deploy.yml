@@ -28,11 +28,9 @@ jobs:
 
       - run: npm ci
 
-      # Project site lives at /personalwebsite/. Set BASE_PATH to "/" here if
-      # you point a custom domain at this repo.
+      # Served at the root of neagoeandrei.com (public/CNAME), so the default
+      # base of "/" is correct — no BASE_PATH override needed.
       - run: npm run build
-        env:
-          BASE_PATH: /personalwebsite/
 
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3

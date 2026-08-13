@@ -2,9 +2,9 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
 
-// GitHub Pages serves this repo from /personalwebsite/. Set BASE_PATH=/ when
-// deploying to a custom domain (or anywhere the site sits at the root).
-const base = process.env.BASE_PATH ?? "/personalwebsite/";
+// The site is served from the root of neagoeandrei.com. Set BASE_PATH to
+// "/personalwebsite/" to build for the bare github.io project URL instead.
+const base = process.env.BASE_PATH ?? "/";
 
 export default defineConfig({
   base,

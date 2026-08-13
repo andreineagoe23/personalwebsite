@@ -5,7 +5,7 @@ back-ends, React front-ends).
 
 This is a portfolio, not a services site. Client work lives at [monevo.tech](https://monevo.tech).
 
-Live: <https://andreineagoe23.github.io/personalwebsite/>
+Live: <https://neagoeandrei.com/>
 
 ## Stack
 
@@ -88,9 +88,13 @@ their final value, and scroll behaviour switches to instant.
 
 ## Deployment
 
-Pushing to `main` triggers `.github/workflows/deploy.yml`, which builds with
-`BASE_PATH=/personalwebsite/` and publishes `dist/` to GitHub Pages.
+Pushing to `main` triggers `.github/workflows/deploy.yml`, which builds and publishes `dist/` to
+GitHub Pages, served at <https://neagoeandrei.com> via `public/CNAME`.
 
-For a custom domain: set `BASE_PATH: /` in the workflow, add a `CNAME` file to `public/`, and
-update `SITE_URL` in `src/data/routes.js` plus the absolute URLs in `index.html` and
-`public/robots.txt`.
+DNS lives at GoDaddy: four `A` records on the apex pointing at GitHub Pages
+(`185.199.108–111.153`), and `www` as a `CNAME` to `andreineagoe23.github.io.` so it redirects to
+the apex.
+
+To build for the bare `github.io` project URL instead — useful for a preview deploy — run
+`BASE_PATH=/personalwebsite/ npm run build`. Changing domain again means updating `SITE_URL` in
+`src/data/routes.js`, `public/CNAME`, `public/robots.txt` and the absolute URLs in `index.html`.

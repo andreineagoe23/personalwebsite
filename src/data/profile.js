@@ -20,43 +20,6 @@ export const profile = {
   },
 };
 
-/**
- * The three numbers that open the page. Each one is a before/after from
- * production work, not a benchmark.
- */
-export const headlineMetrics = [
-  {
-    id: "cache",
-    from: 0.8,
-    to: 0.16,
-    unit: "s",
-    decimals: 2,
-    label: "Repeat link loads",
-    note: "ElastiCache layer in front of RDS Postgres",
-    context: "Framestore · Public Links",
-  },
-  {
-    id: "coldstart",
-    from: 19,
-    to: 5,
-    unit: "s",
-    decimals: 0,
-    label: "Lambda cold start",
-    note: "Memory profiling and a scheduled warmer",
-    context: "Framestore · Public Links",
-  },
-  {
-    id: "package",
-    from: 18,
-    to: 1,
-    unit: "MB",
-    decimals: 0,
-    label: "Deployment package",
-    note: "Dependency pruning and layer restructuring",
-    context: "Framestore · Public Links",
-  },
-];
-
 export const navSections = [
   { id: "work", label: "Work" },
   { id: "experience", label: "Experience" },

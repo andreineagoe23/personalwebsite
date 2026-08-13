@@ -1,8 +1,6 @@
 import { motion, useReducedMotion } from "motion/react";
 import portrait from "../assets/portrait.jpeg";
-import { headlineMetrics, profile } from "../data/profile";
-import { MetricDelta } from "../components/MetricDelta";
-import { Reveal } from "../components/Reveal";
+import { profile } from "../data/profile";
 import { fadeUp, stagger } from "../lib/motion";
 
 const record = [
@@ -90,10 +88,12 @@ export function Hero() {
           </div>
 
           {/* Dossier record card — portrait plus the facts, in mono. */}
-          <motion.div variants={fadeUp} className="lg:col-span-5">
-            <div className="group rounded-2xl border border-hairline bg-surface/60 p-4 shadow-panel backdrop-blur-sm">
+          {/* On lg the card stretches to the left column's height and the photo
+              absorbs the slack, so the two columns always end on the same line. */}
+          <motion.div variants={fadeUp} className="lg:relative lg:col-span-5">
+            <div className="group w-full rounded-2xl border border-hairline bg-surface/60 p-4 shadow-panel backdrop-blur-sm lg:absolute lg:inset-0 lg:flex lg:flex-col">
               {/* Desaturated to sit inside the dossier; returns to colour on hover. */}
-              <div className="relative overflow-hidden rounded-xl border border-hairline">
+              <div className="relative aspect-3/4 overflow-hidden rounded-xl border border-hairline lg:aspect-auto lg:min-h-0 lg:flex-1">
                 <img
                   src={portrait}
                   alt="Andrei Neagoe"
@@ -101,7 +101,7 @@ export function Hero() {
                   height="1024"
                   loading="eager"
                   fetchPriority="high"
-                  className="aspect-3/4 w-full object-cover grayscale transition-[filter] duration-700 ease-out group-hover:grayscale-0"
+                  className="h-full w-full object-cover grayscale transition-[filter] duration-700 ease-out group-hover:grayscale-0"
                 />
                 <div className="absolute inset-x-0 bottom-0 flex items-center justify-between bg-gradient-to-t from-black/70 to-transparent px-3 py-2">
                   <span className="font-mono text-[0.625rem] tracking-widest text-white/80 uppercase">
@@ -124,19 +124,6 @@ export function Hero() {
             </div>
           </motion.div>
         </motion.div>
-
-        {/* Impact band */}
-        <Reveal className="mt-20 md:mt-28">
-          <div className="flex items-baseline gap-4">
-            <span className="eyebrow">Measured in production</span>
-            <span className="rule flex-1 translate-y-[-0.35em]" aria-hidden="true" />
-          </div>
-          <div className="mt-10 grid grid-cols-1 gap-x-10 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
-            {headlineMetrics.map((metric, i) => (
-              <MetricDelta key={metric.id} metric={metric} index={i} />
-            ))}
-          </div>
-        </Reveal>
       </div>
     </section>
   );

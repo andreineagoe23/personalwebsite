@@ -35,10 +35,42 @@ export const experience = [
         tags: ["React", "WebRTC", "Janus", "Canvas"],
       },
     ],
-    metrics: [
-      { value: "12", label: "apps migrated onto the new bus client" },
-      { value: "5×", label: "faster repeat link loads" },
-      { value: "18→1", label: "MB deployment package" },
+    /**
+     * Before/after pairs from the Public Links build. These render as animated
+     * deltas rather than plain figures — they are the load-bearing evidence for
+     * this role, so they get to occupy space.
+     */
+    deltas: [
+      {
+        id: "cache",
+        from: 0.8,
+        to: 0.16,
+        unit: "s",
+        decimals: 2,
+        label: "Repeat link loads",
+        note: "ElastiCache layer in front of RDS Postgres",
+        context: "Public Links",
+      },
+      {
+        id: "coldstart",
+        from: 19,
+        to: 5,
+        unit: "s",
+        decimals: 0,
+        label: "Lambda cold start",
+        note: "Memory profiling and a scheduled warmer",
+        context: "Public Links",
+      },
+      {
+        id: "package",
+        from: 18,
+        to: 1,
+        unit: "MB",
+        decimals: 0,
+        label: "Deployment package",
+        note: "Dependency pruning and layer restructuring",
+        context: "Public Links",
+      },
     ],
   },
   {

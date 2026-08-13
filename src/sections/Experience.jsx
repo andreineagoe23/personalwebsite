@@ -1,5 +1,6 @@
 import { Section } from "../components/Section";
 import { Reveal } from "../components/Reveal";
+import { MetricDelta } from "../components/MetricDelta";
 import { TagRow } from "../components/Tag";
 import { experience } from "../data/experience";
 
@@ -18,19 +19,29 @@ function Role({ role }) {
       <div className="lg:col-span-9">
         <p className="max-w-2xl text-base leading-relaxed text-muted md:text-lg">{role.summary}</p>
 
-        <dl className="mt-8 grid grid-cols-3 gap-x-6 gap-y-4 border-y border-hairline py-5">
-          {role.metrics.map((m) => (
-            <div key={m.label}>
-              <dt className="sr-only">{m.label}</dt>
-              <dd>
-                <span className="block font-display tabular text-xl leading-none tracking-tight text-accent sm:text-2xl">
-                  {m.value}
-                </span>
-                <span className="mt-2 block text-xs leading-snug text-faint">{m.label}</span>
-              </dd>
-            </div>
-          ))}
-        </dl>
+        {role.deltas ? (
+          <div className="mt-8 grid grid-cols-1 gap-x-10 gap-y-10 border-y border-hairline py-8 sm:grid-cols-3">
+            {role.deltas.map((metric, i) => (
+              <MetricDelta key={metric.id} metric={metric} index={i} compact />
+            ))}
+          </div>
+        ) : null}
+
+        {role.metrics ? (
+          <dl className="mt-8 grid grid-cols-3 gap-x-6 gap-y-4 border-y border-hairline py-5">
+            {role.metrics.map((m) => (
+              <div key={m.label}>
+                <dt className="sr-only">{m.label}</dt>
+                <dd>
+                  <span className="block font-display tabular text-xl leading-none tracking-tight text-accent sm:text-2xl">
+                    {m.value}
+                  </span>
+                  <span className="mt-2 block text-xs leading-snug text-faint">{m.label}</span>
+                </dd>
+              </div>
+            ))}
+          </dl>
+        ) : null}
 
         <ul className="mt-8 space-y-8">
           {role.highlights.map((h) => (

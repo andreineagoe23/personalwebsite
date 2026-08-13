@@ -7,7 +7,7 @@ import { EASE, viewport } from "../lib/motion";
  * value to the new one, and the bar underneath shows the same ratio spatially
  * so the size of the win reads without doing arithmetic.
  */
-export function MetricDelta({ metric, index = 0 }) {
+export function MetricDelta({ metric, index = 0, compact = false }) {
   const { from, to, unit, decimals = 0, label, note, context } = metric;
   const ref = useRef(null);
   const inView = useInView(ref, viewport);
@@ -37,10 +37,16 @@ export function MetricDelta({ metric, index = 0 }) {
         </span>
       </div>
 
-      <div className="mt-4 flex items-baseline gap-3">
-        <span className="font-display tabular text-4xl leading-none tracking-tight sm:text-5xl">
+      <div className={`flex items-baseline gap-3 ${compact ? "mt-3" : "mt-4"}`}>
+        <span
+          className={`font-display tabular leading-none tracking-tight ${
+            compact ? "text-2xl sm:text-3xl" : "text-4xl sm:text-5xl"
+          }`}
+        >
           {display.toFixed(decimals)}
-          <span className="ml-0.5 text-xl text-muted sm:text-2xl">{unit}</span>
+          <span className={`ml-0.5 text-muted ${compact ? "text-base" : "text-xl sm:text-2xl"}`}>
+            {unit}
+          </span>
         </span>
         <span className="font-mono text-xs text-faint line-through decoration-1">
           {from.toFixed(decimals)}

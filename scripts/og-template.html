@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@600;700&display=swap"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        width: 1200px;
+        height: 630px;
+        background: #08090b;
+        color: #e8eaed;
+        font-family: "Inter", sans-serif;
+        position: relative;
+        overflow: hidden;
+      }
+      .grid {
+        position: absolute;
+        inset: 0;
+        background-image: linear-gradient(rgb(255 255 255 / 0.045) 1px, transparent 1px),
+          linear-gradient(90deg, rgb(255 255 255 / 0.045) 1px, transparent 1px);
+        background-size: 72px 72px;
+      }
+      .bloom {
+        position: absolute;
+        top: -260px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 900px;
+        height: 700px;
+        border-radius: 999px;
+        background: rgb(45 212 191 / 0.14);
+        filter: blur(120px);
+      }
+      .wrap {
+        position: relative;
+        padding: 72px 80px;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+      .eyebrow {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 15px;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: #5b616b;
+      }
+      .chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        border: 1px solid rgb(45 212 191 / 0.4);
+        color: #2dd4bf;
+        border-radius: 999px;
+        padding: 8px 16px;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 14px;
+        letter-spacing: 0.06em;
+      }
+      .dot {
+        width: 7px;
+        height: 7px;
+        border-radius: 999px;
+        background: #2dd4bf;
+      }
+      h1 {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 104px;
+        line-height: 0.92;
+        letter-spacing: -0.035em;
+        font-weight: 700;
+        margin-top: 34px;
+      }
+      h1 span {
+        color: #2dd4bf;
+      }
+      .role {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 20px;
+        color: #8a9099;
+        margin-top: 26px;
+        letter-spacing: -0.01em;
+      }
+      .metrics {
+        display: flex;
+        gap: 56px;
+        border-top: 1px solid rgb(255 255 255 / 0.1);
+        padding-top: 26px;
+      }
+      .metric .v {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 38px;
+        letter-spacing: -0.03em;
+        font-weight: 600;
+        font-variant-numeric: tabular-nums;
+      }
+      .metric .v em {
+        font-style: normal;
+        color: #5b616b;
+        font-size: 26px;
+      }
+      .metric .l {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 13px;
+        color: #5b616b;
+        margin-top: 10px;
+        letter-spacing: 0.06em;
+      }
+      .foot {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="grid"></div>
+    <div class="bloom"></div>
+    <div class="wrap">
+      <div>
+        <div class="chip"><span class="dot"></span> AVAILABLE FOR INTERESTING PROBLEMS</div>
+        <h1>Andrei Neagoe<span>.</span></h1>
+        <div class="role">
+          Full-Stack Software Engineer &nbsp;·&nbsp; Cloud &amp; Infrastructure &nbsp;·&nbsp; Python
+          &nbsp;·&nbsp; React
+        </div>
+      </div>
+
+      <div class="foot">
+        <div class="metrics">
+          <div class="metric">
+            <div class="v">0.8<em>s</em> → 0.16<em>s</em></div>
+            <div class="l">REPEAT LINK LOADS</div>
+          </div>
+          <div class="metric">
+            <div class="v">19<em>s</em> → 5<em>s</em></div>
+            <div class="l">LAMBDA COLD START</div>
+          </div>
+          <div class="metric">
+            <div class="v">18<em>MB</em> → 1<em>MB</em></div>
+            <div class="l">DEPLOY PACKAGE</div>
+          </div>
+        </div>
+        <div class="eyebrow">FRAMESTORE · GARZONI</div>
+      </div>
+    </div>
+  </body>
+</html>

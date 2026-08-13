@@ -1,0 +1,152 @@
+@import "tailwindcss";
+
+/* Dark mode is driven by a class on <html>, set before paint in index.html. */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ---------------------------------------------------------------------------
+   Palette. Light is the base declaration, dark overrides on the same element
+   (<html>), so `@theme inline` below resolves both without a var indirection.
+   Accent is teal on purpose — monevo.tech owns amber, this should not echo it.
+--------------------------------------------------------------------------- */
+:root {
+  --ground: #fbfbf9;
+  --surface: #ffffff;
+  --surface-2: #f3f3f0;
+  --hairline: rgb(11 13 16 / 0.12);
+  --hairline-strong: rgb(11 13 16 / 0.22);
+  --text: #0b0d10;
+  --muted: #565c66;
+  --faint: #6b7280;
+  --accent: #0f766e;
+  --accent-soft: rgb(15 118 110 / 0.1);
+  --accent-line: rgb(15 118 110 / 0.38);
+  --grid: rgb(11 13 16 / 0.045);
+  --shadow: 0 1px 2px rgb(11 13 16 / 0.04), 0 12px 32px -18px rgb(11 13 16 / 0.18);
+}
+
+.dark {
+  --ground: #08090b;
+  --surface: #0e1014;
+  --surface-2: #14171d;
+  --hairline: rgb(255 255 255 / 0.1);
+  --hairline-strong: rgb(255 255 255 / 0.2);
+  --text: #e8eaed;
+  --muted: #8a9099;
+  --faint: #767c86;
+  --accent: #2dd4bf;
+  --accent-soft: rgb(45 212 191 / 0.12);
+  --accent-line: rgb(45 212 191 / 0.4);
+  --grid: rgb(255 255 255 / 0.035);
+  --shadow: 0 1px 2px rgb(0 0 0 / 0.4), 0 20px 48px -28px rgb(0 0 0 / 0.9);
+}
+
+@theme inline {
+  --color-ground: var(--ground);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-hairline: var(--hairline);
+  --color-hairline-strong: var(--hairline-strong);
+  --color-text: var(--text);
+  --color-muted: var(--muted);
+  --color-faint: var(--faint);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-accent-line: var(--accent-line);
+
+  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --shadow-panel: var(--shadow);
+}
+
+@layer base {
+  * {
+    border-color: var(--hairline);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--ground);
+    color: var(--text);
+    font-family: var(--font-sans);
+    font-feature-settings: "cv05" 1, "ss01" 1;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background: var(--accent);
+    color: var(--ground);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    letter-spacing: -0.03em;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  /* Anchors land below the fixed header. */
+  section[id] {
+    scroll-margin-top: 6rem;
+  }
+}
+
+@layer utilities {
+  /* Blueprint grid — the page's one piece of texture. */
+  .backdrop-grid {
+    background-image: linear-gradient(var(--grid) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+    background-size: 72px 72px;
+    background-position: center top;
+    mask-image: radial-gradient(ellipse 85% 75% at 50% 0%, #000 5%, transparent 80%);
+  }
+
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--faint);
+  }
+
+  .rule {
+    height: 1px;
+    background: linear-gradient(90deg, var(--hairline-strong), transparent);
+  }
+
+  .tabular {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

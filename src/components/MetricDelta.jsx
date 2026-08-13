@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { animate, motion, useInView, useReducedMotion } from "motion/react";
+import { animate, m, useInView, useReducedMotion } from "motion/react";
 import { EASE, viewport } from "../lib/motion";
 
 /**
@@ -56,7 +56,7 @@ export function MetricDelta({ metric, index = 0, compact = false }) {
 
       <div className="mt-5 space-y-1.5" aria-hidden="true">
         <div className="h-px w-full bg-hairline-strong" />
-        <motion.div
+        <m.div
           className="h-[3px] rounded-full bg-accent"
           initial={reduced ? false : { width: "100%" }}
           animate={inView || reduced ? { width: `${ratio * 100}%` } : undefined}

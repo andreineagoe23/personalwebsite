@@ -6,7 +6,6 @@ export const projects = [
     role: "Founder & sole engineer",
     period: "2024 — Present",
     status: "Live on web, iOS and Android",
-    featured: true,
     summary:
       "A personal finance education platform built the way a language app is built: ten-minute lessons, daily streaks, spaced repetition, and AI tools that let you rehearse the decision before you make it. I built and shipped the entire product solo — API, web app, mobile app, billing, infrastructure and content pipeline.",
     metrics: [
@@ -42,6 +41,7 @@ export const projects = [
         tags: ["Docker", "Railway", "Vercel", "EAS", "Cloudflare", "CI/CD"],
       },
     ],
+    caseStudy: "/work/garzoni",
     links: [
       { label: "garzoni.app", href: "https://www.garzoni.app", primary: true },
       { label: "App Store", href: "https://apps.apple.com/app/id6761790801" },
@@ -58,7 +58,6 @@ export const projects = [
     role: "Design & build",
     period: "2025 — Present",
     status: "Live",
-    featured: false,
     summary:
       "A studio site for the client work I take on outside Framestore. Built as a single long-form page with a WebGL fluid-simulation hero rendered on a real-time canvas, motion tuned to stay under a frame budget, and typography doing most of the work.",
     metrics: [

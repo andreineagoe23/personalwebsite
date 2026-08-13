@@ -1,5 +1,6 @@
 import { Reveal } from "./Reveal";
 import { TagRow } from "./Tag";
+import { Link } from "../lib/router";
 
 function Metrics({ metrics }) {
   if (!metrics?.length) return null;
@@ -21,15 +22,13 @@ function Metrics({ metrics }) {
 }
 
 export function ProjectCard({ project }) {
-  const { name, tagline, role, period, status, summary, metrics, pillars, links, featured } =
+  const { name, tagline, role, period, status, summary, metrics, pillars, links, caseStudy } =
     project;
 
   return (
     <Reveal
       as="article"
-      className={`relative overflow-hidden rounded-2xl border border-hairline bg-surface/50 p-6 backdrop-blur-sm transition-colors duration-300 hover:border-hairline-strong sm:p-9 ${
-        featured ? "" : ""
-      }`}
+      className="relative overflow-hidden rounded-2xl border border-hairline bg-surface/50 p-6 backdrop-blur-sm transition-colors duration-300 hover:border-hairline-strong sm:p-9"
     >
       <div className="flex flex-wrap items-start justify-between gap-x-6 gap-y-4">
         <div>
@@ -73,6 +72,20 @@ export function ProjectCard({ project }) {
 
       {links?.length ? (
         <div className="mt-9 flex flex-wrap gap-3">
+          {caseStudy ? (
+            <Link
+              to={caseStudy}
+              className="group inline-flex items-center gap-2 rounded-full border border-accent-line px-4 py-2 font-mono text-xs text-accent transition-colors duration-200 hover:bg-accent-soft"
+            >
+              Read the case study
+              <span
+                aria-hidden="true"
+                className="transition-transform duration-200 group-hover:translate-x-0.5"
+              >
+                →
+              </span>
+            </Link>
+          ) : null}
           {links.map((l) => (
             <a
               key={l.href}

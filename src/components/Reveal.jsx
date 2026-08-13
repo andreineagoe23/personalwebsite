@@ -1,4 +1,4 @@
-import { motion, useReducedMotion } from "motion/react";
+import { m, useReducedMotion } from "motion/react";
 import { fadeUp, viewport } from "../lib/motion";
 
 /**
@@ -7,7 +7,7 @@ import { fadeUp, viewport } from "../lib/motion";
  */
 export function Reveal({ as = "div", delay = 0, className = "", children, ...rest }) {
   const reduced = useReducedMotion();
-  const Tag = motion[as] ?? motion.div;
+  const Tag = m[as] ?? m.div;
 
   if (reduced) {
     const Plain = as;

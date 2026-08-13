@@ -20,6 +20,10 @@ export const profile = {
   },
 };
 
+// Lives in public/, so it is resolved against the deploy base rather than "/".
+export const cvUrl = `${import.meta.env.BASE_URL}AndreiNeagoe-CV.pdf`;
+export const cvFilename = "AndreiNeagoe-CV.pdf";
+
 export const navSections = [
   { id: "work", label: "Work" },
   { id: "experience", label: "Experience" },

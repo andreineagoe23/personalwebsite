@@ -6,7 +6,7 @@ export function Tag({ children, tone = "default" }) {
 
   return (
     <span
-      className={`inline-flex items-center rounded-full border px-2.5 py-1 font-mono text-[0.6875rem] leading-none tracking-tight whitespace-nowrap ${tones[tone]}`}
+      className={`inline-flex items-center rounded-full border px-2.5 py-1 font-mono text-xs leading-none tracking-tight whitespace-nowrap ${tones[tone]}`}
     >
       {children}
     </span>

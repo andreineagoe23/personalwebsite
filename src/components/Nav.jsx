@@ -96,7 +96,7 @@ export function Nav() {
         }`}
       >
         <nav className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between px-5 sm:px-8">
-          <Link to="/" className="group flex items-center gap-2.5" aria-label={profile.name}>
+          <Link to="/" className="group flex min-h-11 items-center gap-2.5" aria-label={profile.name}>
             <span className="grid h-7 w-7 place-items-center rounded-md border border-hairline font-mono text-[0.6875rem] text-accent transition-colors duration-200 group-hover:border-accent-line">
               AN
             </span>
@@ -113,7 +113,7 @@ export function Nav() {
                     to="/"
                     hash={`#${s.id}`}
                     aria-current={active === s.id ? "true" : undefined}
-                    className={`relative rounded-full px-3 py-1.5 font-mono text-xs tracking-wide transition-colors duration-200 ${
+                    className={`relative inline-flex min-h-9 items-center rounded-full px-3 py-2 font-mono text-xs tracking-wide transition-colors duration-200 ${
                       active === s.id
                         ? "border border-accent-line text-accent"
                         : "border border-transparent text-muted hover:text-text"
@@ -128,7 +128,7 @@ export function Nav() {
             <a
               href={cvUrl}
               download={cvFilename}
-              className="mr-1 hidden items-center gap-1.5 rounded-full border border-accent-line px-3 py-1.5 font-mono text-xs tracking-wide text-accent transition-colors duration-200 hover:bg-accent-soft sm:inline-flex"
+              className="mr-1 hidden min-h-9 items-center gap-1.5 rounded-full border border-accent-line px-3 py-2 font-mono text-xs tracking-wide text-accent transition-colors duration-200 hover:bg-accent-soft sm:inline-flex"
             >
               CV
               <DownloadIcon className="h-3 w-3" />

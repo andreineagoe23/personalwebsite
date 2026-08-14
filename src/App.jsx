@@ -1,10 +1,15 @@
-import { useEffect } from "react";
+import { lazy, Suspense, useEffect } from "react";
 import { Backdrop } from "./components/Backdrop";
 import { Nav } from "./components/Nav";
 import { Footer } from "./components/Footer";
 import { Home } from "./pages/Home";
-import { CaseStudyGarzoni } from "./pages/CaseStudyGarzoni";
 import { NotFound } from "./pages/NotFound";
+
+// Split off the home bundle: most visitors never open the case study, and the
+// case-study HTML modulepreloads this chunk so direct visits pay no round trip.
+const CaseStudyGarzoni = lazy(() =>
+  import("./pages/CaseStudyGarzoni").then((m) => ({ default: m.CaseStudyGarzoni })),
+);
 import { useHashLanding } from "./lib/useHashLanding";
 import { useRouter } from "./lib/router";
 import { notFound, routeByPath, SITE_URL } from "./data/routes";
@@ -37,9 +42,13 @@ function useDocumentMeta(route, path) {
   }, [route, path]);
 }
 
-export default function App() {
+/**
+ * `page` lets the prerender pass in an already-resolved component: renderToString
+ * cannot suspend on a lazy import, and the client still code-splits normally.
+ */
+export default function App({ page }) {
   const { path } = useRouter();
-  const Page = PAGES[path];
+  const Page = page ?? PAGES[path];
   const route = routeByPath(path) ?? notFound;
 
   useDocumentMeta(route, Page ? path : "/404");
@@ -49,7 +58,12 @@ export default function App() {
     <>
       <Backdrop />
       <Nav />
-      <main id="main">{Page ? <Page /> : <NotFound />}</main>
+      <main id="main">
+        {/* min-height keeps the footer from jumping while a route chunk loads */}
+        <Suspense fallback={<div className="min-h-screen" />}>
+          {Page ? <Page /> : <NotFound />}
+        </Suspense>
+      </main>
       <Footer />
     </>
   );

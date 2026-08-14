@@ -30,7 +30,7 @@ export function Contact() {
         <Reveal delay={0.1} className="mt-12">
           <a
             href={`mailto:${profile.links.email}`}
-            className="group inline-flex max-w-full items-baseline gap-3 font-display text-[clamp(1.5rem,5.5vw,3.5rem)] leading-none tracking-tight break-all transition-colors duration-200 hover:text-accent"
+            className="group inline-flex min-h-11 max-w-full items-baseline gap-3 py-1 font-display text-[clamp(1.5rem,5.5vw,3.5rem)] leading-none tracking-tight break-all transition-colors duration-200 hover:text-accent"
           >
             {profile.links.email}
             <span

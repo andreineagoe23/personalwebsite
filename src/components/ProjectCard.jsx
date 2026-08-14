@@ -35,7 +35,7 @@ export function ProjectCard({ project }) {
           <div className="flex flex-wrap items-center gap-3">
             <h3 className="font-display text-3xl leading-none tracking-tight sm:text-4xl">{name}</h3>
             {status ? (
-              <span className="inline-flex items-center gap-1.5 rounded-full border border-accent-line px-2.5 py-1 font-mono text-[0.625rem] tracking-wide text-accent">
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-accent-line px-2.5 py-1 font-mono text-[0.6875rem] tracking-wide text-accent">
                 <span className="h-1 w-1 rounded-full bg-accent" />
                 {status}
               </span>

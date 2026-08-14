@@ -4,9 +4,12 @@
   "description": "Portfolio of Andrei Neagoe — full-stack software engineer (cloud, Python, React).",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && node scripts/prerender-routes.mjs",
+    "build": "vite build && npm run build:ssr && node scripts/prerender-routes.mjs",
     "preview": "vite preview --port 4173",
-    "og": "node scripts/build-og.mjs"
+    "og": "node scripts/build-og.mjs",
+    "images": "node scripts/build-images.mjs",
+    "fonts": "node scripts/build-fonts.mjs",
+    "build:ssr": "vite build --ssr src/entry-server.jsx --outDir dist-ssr"
   },
   "repository": {
     "type": "git",

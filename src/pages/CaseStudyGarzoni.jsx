@@ -39,7 +39,7 @@ export function CaseStudyGarzoni() {
             <h1 className="font-display text-[clamp(2.5rem,7vw,4.5rem)] leading-none tracking-tight">
               {cs.name}
             </h1>
-            <span className="inline-flex items-center gap-1.5 rounded-full border border-accent-line px-2.5 py-1 font-mono text-[0.625rem] tracking-wide text-accent">
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-accent-line px-2.5 py-1 font-mono text-[0.6875rem] tracking-wide text-accent">
               <span className="h-1 w-1 rounded-full bg-accent" />
               {cs.status}
             </span>

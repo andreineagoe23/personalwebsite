@@ -14,8 +14,9 @@ Live: <https://neagoeandrei.com/>
 | Build   | Vite 8                                                     |
 | UI      | React 19                                                   |
 | Styling | Tailwind CSS 4 (CSS-first config, no `tailwind.config.js`) |
-| Motion  | Motion 13 via `LazyMotion` + `domAnimation`                |
+| Motion  | CSS keyframes; Motion 13 (`LazyMotion`) only for menu + counters |
 | Routing | ~50 lines in `src/lib/router.jsx`                          |
+| Render  | Prerendered to static HTML at build, hydrated on the client |
 | Deploy  | GitHub Actions → GitHub Pages                              |
 
 Two runtime dependencies: React and Motion. No router library, no CMS, no analytics, no trackers.
@@ -28,6 +29,8 @@ npm run dev       # local dev server
 npm run build     # vite build + prerender routes → dist/
 npm run preview   # serve dist/ at :4173
 npm run og        # regenerate public/og.png + apple-touch-icon.png (needs Chrome)
+npm run images    # re-encode the portrait to WebP at 2 widths (needs Chrome)
+npm run fonts     # re-download the self-hosted woff2 files
 ```
 
 ## Routes
@@ -40,8 +43,9 @@ Declared once in `src/data/routes.js`, consumed by both the client router and th
 | `/work/garzoni` | Garzoni case study          |
 | anything else   | 404 (`src/pages/NotFound`)  |
 
-`scripts/prerender-routes.mjs` runs after `vite build` and writes a real `index.html` for every
-route, plus `404.html` and `sitemap.xml`. GitHub Pages has no server-side rewrite, so without this
+`scripts/prerender-routes.mjs` runs after `vite build` and `build:ssr`. It renders each route to
+static HTML through `src/entry-server.jsx` and writes a real `index.html` for every route, plus
+`404.html` and `sitemap.xml`. The client hydrates that markup rather than building it from scratch. GitHub Pages has no server-side rewrite, so without this
 a client-only router would serve `/work/garzoni` as a hard 404 to crawlers. Each generated file
 carries its own `<title>`, description, canonical and Open Graph tags; `404.html` also gets
 `noindex`.
@@ -67,6 +71,27 @@ Only add a metric you can point at a real before/after for — the design leans 
 
 The CV lives at `public/AndreiNeagoe-CV.pdf` and is linked from the nav, the hero and the mobile
 menu. Replacing the file is enough; the filename is referenced once, in `profile.js`.
+
+## Performance
+
+The page is prerendered, so content is readable before any JavaScript runs. Two rules keep it that
+way:
+
+- **Nothing that carries content may start at `opacity: 0` in the HTML.** Entrance animation is CSS
+  (`.rise`), which runs at first paint. Scroll reveals arm themselves in a layout effect and only
+  for elements already below the fold, so they never delay the largest paint.
+- **The LCP image is preloaded** with `imagesrcset` mirroring the `<picture>` in `Hero.jsx`. If the
+  two ever disagree the browser downloads the portrait twice.
+
+Fonts are self-hosted in `public/fonts` — no third-party request on the render path. The portrait
+ships as WebP at 420w and 768w with a JPEG fallback.
+
+Measured cold on a throttled connection (1.6 Mbps, 150 ms RTT, 4x CPU):
+
+| | FCP | LCP | CLS |
+| --- | --- | --- | --- |
+| Desktop | ~1.5 s | ~2.6 s | 0 |
+| Mobile | ~1.5 s | ~1.5 s | 0 |
 
 ## Design system
 

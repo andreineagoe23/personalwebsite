@@ -26,8 +26,11 @@ export function toHref(appPath) {
   return `${BASE}${appPath}/`;
 }
 
-export function RouterProvider({ children }) {
-  const [path, setPath] = useState(() => toAppPath(window.location.pathname));
+export function RouterProvider({ children, initialPath }) {
+  // initialPath is supplied during prerendering, where there is no location.
+  const [path, setPath] = useState(
+    () => initialPath ?? (typeof window === "undefined" ? "/" : toAppPath(window.location.pathname)),
+  );
 
   useEffect(() => {
     const onPop = () => setPath(toAppPath(window.location.pathname));

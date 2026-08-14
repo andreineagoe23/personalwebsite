@@ -12,7 +12,7 @@ export function Footer() {
 
         <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
           <a
-            className="font-mono text-xs text-muted transition-colors duration-200 hover:text-accent"
+            className="inline-flex min-h-11 items-center font-mono text-xs text-muted transition-colors duration-200 hover:text-accent"
             href={profile.links.github}
             target="_blank"
             rel="noopener noreferrer"
@@ -20,7 +20,7 @@ export function Footer() {
             GitHub
           </a>
           <a
-            className="font-mono text-xs text-muted transition-colors duration-200 hover:text-accent"
+            className="inline-flex min-h-11 items-center font-mono text-xs text-muted transition-colors duration-200 hover:text-accent"
             href={profile.links.linkedin}
             target="_blank"
             rel="noopener noreferrer"
@@ -28,13 +28,13 @@ export function Footer() {
             LinkedIn
           </a>
           <a
-            className="font-mono text-xs text-muted transition-colors duration-200 hover:text-accent"
+            className="inline-flex min-h-11 items-center font-mono text-xs text-muted transition-colors duration-200 hover:text-accent"
             href={`mailto:${profile.links.email}`}
           >
             Email
           </a>
           <a
-            className="font-mono text-xs text-faint transition-colors duration-200 hover:text-accent"
+            className="inline-flex min-h-11 items-center font-mono text-xs text-faint transition-colors duration-200 hover:text-accent"
             href="#top"
           >
             ↑ Top

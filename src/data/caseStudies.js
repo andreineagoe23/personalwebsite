@@ -13,6 +13,7 @@ export const garzoni = {
     { key: "Duration", value: "21 months, ongoing" },
     { key: "Surfaces", value: "Web, iOS, Android" },
     { key: "Scale", value: "~250k lines · 900+ commits" },
+    { key: "Users", value: "150+ on web, iOS and Android" },
     { key: "Backend", value: "Django 5.2 · DRF · Celery" },
     { key: "Clients", value: "React 19 · Expo" },
   ],

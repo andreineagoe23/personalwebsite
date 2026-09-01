@@ -4,7 +4,7 @@ import portraitWebp420 from "../assets/portrait-420.webp";
 import { cvFilename, cvUrl, profile } from "../data/profile";
 
 const record = [
-  { key: "Role", value: "Software Developer" },
+  { key: "Role", value: "Associate Software Developer" },
   { key: "Company", value: "Framestore" },
   { key: "Since", value: "Jul 2025" },
   { key: "Building", value: "Garzoni" },

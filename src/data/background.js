@@ -2,7 +2,7 @@ export const education = {
   degree: "BSc (Hons) Computer Science",
   institution: "Queen Mary University of London",
   period: "2022 — 2025",
-  note: "BCS-accredited programme in the School of Electronic Engineering and Computer Science.",
+  note: "BCS-accredited degree from the School of Electronic Engineering and Computer Science.",
   modules: [
     "Procedural & Object-Oriented Programming",
     "Algorithms & Data Structures",
@@ -13,7 +13,7 @@ export const education = {
     "Neural Networks & Deep Learning",
   ],
   detail:
-    "Completed the individual final-year project alongside team-based software engineering coursework, taking a leadership role in group projects and ranking in the top 10% for key technical modules.",
+    "Focused on software engineering, databases, web development and neural networks, with team projects run to a full delivery cycle from requirements through to demo.",
 };
 
 export const training = [
@@ -31,9 +31,9 @@ export const training = [
   },
   {
     id: "rae",
-    title: "Royal Academy of Engineering masterclass",
-    org: "Workshop",
-    body: "Professional networking, public speaking and personal branding.",
+    title: "Royal Academy of Engineering masterclasses",
+    org: "Graduate Engineering Engagement Programme · Nov 2023 — Jun 2024",
+    body: "Selected for an eight-month series on professional networking, public speaking and personal branding, alongside sessions on engineering career pathways, sustainability, and taking research through to commercialisation.",
   },
   {
     id: "olympiads",

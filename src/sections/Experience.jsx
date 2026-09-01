@@ -60,8 +60,42 @@ function Role({ role }) {
             </li>
           ))}
         </ul>
+
+        {role.products ? <Roadmap products={role.products} /> : null}
       </div>
     </Reveal>
+  );
+}
+
+/**
+ * The same year read the other way round: not what the work was, but how many
+ * separate products it landed on. Reconstructed from closed tickets, newest
+ * first, so the top of the list is also the most recent thing shipped.
+ */
+function Roadmap({ products }) {
+  return (
+    <div className="mt-12 border-t border-hairline pt-8">
+      <p className="eyebrow">A year across the estate</p>
+      <ol className="mt-6 divide-y divide-hairline border-y border-hairline">
+        {products.map((p) => (
+          <li
+            key={p.id}
+            className="grid grid-cols-1 gap-x-8 gap-y-2 py-5 sm:grid-cols-12 sm:gap-y-1"
+          >
+            <div className="sm:col-span-3">
+              <p className="eyebrow">{p.period}</p>
+            </div>
+            <div className="sm:col-span-9">
+              <h5 className="font-mono text-sm tracking-tight">
+                {p.name}
+                <span className="ml-2 text-xs text-faint">{p.kind}</span>
+              </h5>
+              <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted">{p.body}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </div>
   );
 }
 
@@ -71,7 +105,7 @@ export function Experience() {
       id="experience"
       index="02 / Experience"
       title="Where the production work happens."
-      lede="Serverless services, the Terraform under them, and the message bus everything else talks through."
+      lede="Serverless services, the Terraform under them, the message bus everything else talks through — and the ten-odd internal products that sit on top."
     >
       <div className="divide-y divide-hairline">
         {experience.map((role, i) => (

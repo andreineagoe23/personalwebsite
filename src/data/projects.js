@@ -12,7 +12,7 @@ export const projects = [
       { value: "~250k", label: "lines across the monorepo" },
       { value: "900+", label: "commits over 21 months" },
       { value: "3", label: "shipped platforms" },
-      { value: "20+", label: "backend test suites" },
+      { value: "150+", label: "users on web, iOS and Android" },
     ],
     pillars: [
       {

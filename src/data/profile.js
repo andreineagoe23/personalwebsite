@@ -10,7 +10,7 @@ export const profile = {
   // Two sentences, load-bearing. The rest of the page is the evidence.
   lede: "I build the infrastructure and the interface on top of it. At Framestore I design and ship serverless AWS services and the Terraform that provisions them, and maintain the event-driven messaging platform connecting the company's internal applications.",
   sublede:
-    "Alongside that I am the sole engineer behind Garzoni, an AI-powered financial learning platform live on web, iOS and Android. I care about the numbers that follow a decision — latency, cost, reliability.",
+    "Alongside that I am the sole engineer behind Garzoni, an AI-powered financial learning platform live on web, iOS and Android with 150+ users. I care about the numbers that follow a decision — latency, cost, reliability.",
   links: {
     email: "neagoeandrei23@gmail.com",
     github: "https://github.com/andreineagoe23",

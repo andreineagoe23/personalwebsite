@@ -21,6 +21,7 @@ export const stack = [
       "Amplify",
       "Terraform",
       "Docker",
+      "Ansible",
       "GitLab CI",
       "GitHub Actions",
       "GCP",
@@ -45,7 +46,7 @@ export const stack = [
   {
     id: "frontend",
     label: "Front-end",
-    items: ["React", "React Native / Expo", "Vue", "Tailwind", "HTML5", "CSS3"],
+    items: ["React", "React Native / Expo", "Vue", "Vite", "Tailwind", "HTML5", "CSS3"],
   },
   {
     id: "other",
@@ -53,8 +54,9 @@ export const stack = [
     items: [
       "Git",
       "WebRTC",
-      "OpenAI APIs",
-      "Claude API & Skills",
+      "LLM APIs (OpenAI, Claude)",
+      "Sentry",
+      "ELK",
       "Figma",
       "Agile / Scrum",
     ],
